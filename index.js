@@ -14,8 +14,8 @@ app.post('/pay', async (req, res) => {
         const { name } = req.body;
         if (!name) return res.status(400).json({ message: 'Please enter a name' });
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: Math.round(25 * 100),
-            currency: 'USD',
+            amount: 1000,
+            currency: 'zar',
             payment_method_types: ["card"],
             metadata: { name },
         });
